@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="form_style.css" rel="stylesheet" type="text/css"/>
+		<title>Request More Information</title>
+	</head>
+	<body>
+		<div class="container">
+			<form name="informationForm" method="post" action="" onsubmit="return validateForm()">
+				<div class="row">
+					<h2>Request More Information</h2>
+				</div>
+				<div class="row">
+					<div class="containerlabelleft">What degree type would you like?*</div>
+					<select id="degree" name="degree">
+						<option value="">Select</option>
+						<option value="Computer Science">Computer Science</option>
+						<option value="Religion">Religion</option>
+						<option value="Business">Business</option>
+					</select>
+				</div>
+				<div class="row">
+					<div class="containerlabelleft">What would you like to study?*</div>
+					<select id="study" name="study">
+						<option value="">Select degree type above</option>
+						<option value="option1">Option 1</option>
+						<option value="option2">Option 2</option>
+						<option value="option3">Option 3</option>
+					</select>
+				</div>
+				<div class="row">
+					<div class="column">
+						<div class="containerlabelleft">First Name*</div>
+						<input type="text" id="first-name" name="first-name" />
+					</div>
+					<div class="column">
+						<div class="containerlabelleft">Last Name*</div>
+						<input type="text" id="last-name" name="last-name" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="containerlabelleft">Email*</div>
+					<input type="email" id="email-address" name="email-address" />
+				</div>
+				<div class="row">
+					<div class="column">
+						<div class="containerlabelleft">Telephone*</div>
+						<input type="text" id="phone" name="phone" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="containerlabelleft">Address*</div>
+					<div class="containerlabelright">
+						<a href="#">
+							Apt., P.O. box, or don't see your address?
+						</a>
+					</div>
+					<input type="text" id="address" name="address" placeholder="Enter a location" />
+				</div>
+				<div class="row">
+					<input type="submit" value="Tell Me More" />
+				</div>
+			</form>
+			<div class="row">
+				<div class="smallwords">
+					<p>
+						 By submitting contact information through this form,
+						 I agree that Liberty University and it affiliates may call
+						 and/or text me about its offerings by any phone number I have provided
+						 and may provide in the future, including any wireless number,
+						 using automated technology.
+					</p>
+					<p>
+						 Message and data rates may apply.
+						 For additional information, text HELP to 49595 or 49596.
+						 You may opt-out at any time by sending STOP to 49595 or 49596.
+						 Visit for <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="wordline">OR</div>
+			</div>
+			<div class="row">
+				<button>Apply Now</button>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="//maps.googleapis.com/maps/api/js"></script>
+<script>
+//Validates the request information form.
+function validateForm()
+{
+	var degree = document.forms["informationForm"]["degree"].value;
+	var study = document.forms["informationForm"]["study"].value;
+	var first_name = document.forms["informationForm"]["first-name"].value;
+	var last_name = document.forms["informationForm"]["last-name"].value;
+	var email = document.forms["informationForm"]["email-address"].value;
+	var phone = document.forms["informationForm"]["phone"].value;
+	var address = document.forms["informationForm"]["address"].value;
+
+	var is_empty=!isFieldNotEmpty(degree,"Please select a degree!")||
+							 !isFieldNotEmpty(study, "Please select a field of study")||
+							 !isFieldNotEmpty(first_name, "Please enter your first name!")||
+							 !isFieldNotEmpty(last_name, "Please enter your last name!")||
+							 !isFieldNotEmpty(email, "Please enter an email address!")||
+							 !isFieldNotEmpty(phone, "Please enter a phone number!")||
+							 !isFieldNotEmpty(address, "Please enter an address!");
+
+
+	if(is_empty)
+	{
+		return false;
+	}
+
+
+
+	return true;
+}
+
+//Checks to make sure that a field is not empty.
+function isFieldNotEmpty(input, message)
+{
+	if(input=="")
+	{
+		alert(message);
+		return false;
+	}
+
+	return true;
+}
+
+
+</script>

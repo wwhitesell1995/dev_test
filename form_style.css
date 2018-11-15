@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.container {
+	background-color: white;
+	width: 20vw;
+	height: 90vh;
+	margin: auto;
+	padding: 20px;
+	font-size: 14px;
+}
+
+.container h2 {
+	text-align: center;
+}
+
+.container input, label {
+    display:block;
+}
+
+.containerlabelleft{
+	float: left;
+	margin-right: 16px;
+	font-weight: bold;
+}
+
+.containerlabelright{
+	float: right;
+	font-weight: bold;
+}
+
+.container select, input[type=text], input[type=email]  {
+		vertical-align:middle;
+    width: 100%;
+		height: 4vh;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 6px 10px 6px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.container button, input[type=submit] {
+	color: white;
+	padding: 10px;
+	font-size: 18px;
+	border: none;
+	cursor: pointer;
+	height: 8vh;
+	width: 100%;
+}
+
+.container input[type=submit] {
+	background-color: #2773CB;
+}
+
+.container input[type=submit]:hover {
+	background-color: #174181;
+}
+
+.container button {
+	background-color: #00AA70;
+}
+
+.container button:hover {
+	background-color: #006400;
+}
+
+.container a {
+    color: #2773CB;
+    text-decoration: none;
+		padding-bottom: 10px
+}
+
+.container a:hover {
+    color: #174181;
+}
+
+.column {
+    float: left;
+		padding-right: 1%;
+    width: 49%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+		margin-bottom: 15px;
+}
+
+.wordline {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.25);
+	margin: 8px 0px;
+  font-weight: bold;
+}
+
+.wordline::before, .wordline::after {
+	content: "";
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.25);
+	height: 2px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
+
+.smallwords p {
+ color: gray;
+ font-size: 10px;
+}
+
+body {
+    font-family: 'Open Sans';
+}
+
+html {
+  background: url(stars.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
