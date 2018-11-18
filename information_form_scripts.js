@@ -165,4 +165,4 @@ function applyNow()
 populateAdddreses();
 
 //Makes sure that studies are populated correctly on page load.
-window.onload(changeStudyOnDegree(document.getElementById("degree"), document.getElementById("study")));
+changeStudyOnDegree(document.getElementById("degree"), document.getElementById("study"));

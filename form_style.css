@@ -4,7 +4,7 @@
 /*Creates form container*/
 .container {
 	background-color: white;
-	margin: 2% 15% 8% 8%;
+	margin: 2% 10% 8% 8%;
 	padding: 20px;
 }
 
@@ -131,7 +131,7 @@
 	flex-basis: 100%;
 	align-items: center;
 	color: rgba(0, 0, 0, 0.25);
-	margin: 8px 0px;
+	margin: 3px 0px;
   font-weight: bold;
 }
 
@@ -143,16 +143,44 @@
 	height: 2px;
 	font-size: 0px;
 	line-height: 0px;
-	margin: 0px 8px;
+	margin: 0px 3px;
 }
 
-/*Used to stack form elements on top of each other on screens less than 500 px*/
+/*Used restyle form to be readable on screens less than 500 px*/
 @media screen and (max-width: 500px) {
-  .column {
-      width: 100%;
-      margin-top: 0;
-			margin-bottom: 15px;
-  }
+	.container {
+		font-size: 9px;
+	}
+
+  .container select, input{
+		padding: 3px;
+		font-size: 9px;
+	}
+
+	.container button, input[type=submit]
+	{
+		padding: 15px;
+		font-size: 12px
+	}
+
+	.container select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		background: url('dropdown-arrow-small.jpg') no-repeat;  /*Image obtained from http://chittagongit.com/images/dropdown-arrow-icon/dropdown-arrow-icon-9.jpg*/
+		background-position: 100% 50%;
+		text-indent: 0.01px;
+		text-overflow: "";
+	}
+
+	.row::after{
+		margin-bottom: 7px;
+	}
+
+	.smallwords p{
+		font-size: 7px;
+	}
+
+
 }
 
 body {
