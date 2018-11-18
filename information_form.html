@@ -1,19 +1,28 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!--Styling for the request information form-->
 		<link href="form_style.css" rel="stylesheet" type="text/css"/>
 		<title>Request More Information</title>
+
+		<!--Allows for the use of the google maps API-->
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
 	</head>
 	<body>
 		<div class="container">
-			<form name="informationForm" method="post" action="" onsubmit="return validateForm()">
+			<form id="informationForm" name="informationForm" action="https://www.google.com/" onsubmit="return validateForm()">
 				<div class="row">
 					<h2>Request More Information</h2>
 				</div>
 				<div class="row">
+
+					<!--Options in study dropdown are changed based on what is selected in the degree dropdown-->
 					<div class="containerlabelleft">What degree type would you like?*</div>
-					<select id="degree" name="degree">
+					<select id="degree" name="degree" onchange="changeStudyOnDegree(this, document.getElementById('study'))" required>
 						<option value="">Select</option>
 						<option value="Computer Science">Computer Science</option>
 						<option value="Religion">Religion</option>
@@ -22,41 +31,38 @@
 				</div>
 				<div class="row">
 					<div class="containerlabelleft">What would you like to study?*</div>
-					<select id="study" name="study">
+					<select id="study" name="study" required disabled>
 						<option value="">Select degree type above</option>
-						<option value="option1">Option 1</option>
-						<option value="option2">Option 2</option>
-						<option value="option3">Option 3</option>
 					</select>
 				</div>
 				<div class="row">
 					<div class="column">
 						<div class="containerlabelleft">First Name*</div>
-						<input type="text" id="first-name" name="first-name" />
+						<input type="text" id="first-name" name="first-name" required/>
 					</div>
 					<div class="column">
 						<div class="containerlabelleft">Last Name*</div>
-						<input type="text" id="last-name" name="last-name" />
+						<input type="text" id="last-name" name="last-name" required/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="containerlabelleft">Email*</div>
-					<input type="email" id="email-address" name="email-address" />
+					<input type="email" id="email-address" name="email-address" required/>
 				</div>
 				<div class="row">
 					<div class="column">
 						<div class="containerlabelleft">Telephone*</div>
-						<input type="text" id="phone" name="phone" />
+						<input type="tel" id="phone" name="phone" required/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="containerlabelleft">Address*</div>
 					<div class="containerlabelright">
-						<a href="#">
+						<a href="https://support.google.com/maps/answer/3094088?co=GENIE.Platform%3DDesktop&hl=en">
 							Apt., P.O. box, or don't see your address?
 						</a>
 					</div>
-					<input type="text" id="address" name="address" placeholder="Enter a location" />
+					<input type="text" id="address" name="address" placeholder="Enter a location" required/>
 				</div>
 				<div class="row">
 					<input type="submit" value="Tell Me More" />
@@ -79,58 +85,19 @@
 					</p>
 				</div>
 			</div>
+
+			<!--Adds a line with a word in the middle-->
 			<div class="row">
 				<div class="wordline">OR</div>
 			</div>
+
+			<!--Sends user to application page-->
 			<div class="row">
-				<button>Apply Now</button>
+				<button name="apply" onclick="applyNow()">Apply Now</button>
 			</div>
 		</div>
+
+		<!--Imports javascript to improve form functionality and validation-->
+		<script type="text/javascript" src="information_form_scripts.js"></script>
 	</body>
 </html>
-<script src="//maps.googleapis.com/maps/api/js"></script>
-<script>
-//Validates the request information form.
-function validateForm()
-{
-	var degree = document.forms["informationForm"]["degree"].value;
-	var study = document.forms["informationForm"]["study"].value;
-	var first_name = document.forms["informationForm"]["first-name"].value;
-	var last_name = document.forms["informationForm"]["last-name"].value;
-	var email = document.forms["informationForm"]["email-address"].value;
-	var phone = document.forms["informationForm"]["phone"].value;
-	var address = document.forms["informationForm"]["address"].value;
-
-	var is_empty=!isFieldNotEmpty(degree,"Please select a degree!")||
-							 !isFieldNotEmpty(study, "Please select a field of study")||
-							 !isFieldNotEmpty(first_name, "Please enter your first name!")||
-							 !isFieldNotEmpty(last_name, "Please enter your last name!")||
-							 !isFieldNotEmpty(email, "Please enter an email address!")||
-							 !isFieldNotEmpty(phone, "Please enter a phone number!")||
-							 !isFieldNotEmpty(address, "Please enter an address!");
-
-
-	if(is_empty)
-	{
-		return false;
-	}
-
-
-
-	return true;
-}
-
-//Checks to make sure that a field is not empty.
-function isFieldNotEmpty(input, message)
-{
-	if(input=="")
-	{
-		alert(message);
-		return false;
-	}
-
-	return true;
-}
-
-
-</script>

@@ -1,97 +1,131 @@
+/*Allows for Open Sans font to be used from Google fonts*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+/*Creates form container*/
 .container {
 	background-color: white;
-	width: 20vw;
-	height: 90vh;
-	margin: auto;
+	margin: 2% 15% 8% 8%;
 	padding: 20px;
-	font-size: 14px;
 }
 
+/*Centers header for container*/
 .container h2 {
 	text-align: center;
 }
 
-.container input, label {
-    display:block;
+/*Styles inputs and selects for the container.*/
+.container select, input {
+	display:block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px;
 }
 
+/*Styles the select box to replace the dropdown arrow with an image*/
+.container select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: url('dropdown-arrow.jpg') no-repeat;  /*Image obtained from http://chittagongit.com/images/dropdown-arrow-icon/dropdown-arrow-icon-9.jpg*/
+	background-position: 100% 50%;
+	text-indent: 0.01px;
+	text-overflow: "";
+}
+
+/*Styles select options that are invalid when required*/
+.container select:required:invalid {
+  color: gray;
+}
+
+/*Styles select when it is disabled*/
+.container select:disabled {
+	background-color: #EEE;
+}
+
+/*Styles options so that they remain black despite the color of the select value*/
+.container option {
+  color: black;
+}
+
+
+.container button, input[type=submit] {
+	color: white;
+	padding: 30px;
+	font-size: 18px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+/*Makes submit buttons in the container a shade of blue*/
+.container input[type=submit] {
+	background-color: #2773CB;
+}
+
+/*Darkens submit buttons when hovered*/
+.container input[type=submit]:hover {
+	background-color: #174181;
+}
+
+/*Makes buttons green*/
+.container button {
+	background-color: #00AA70;
+}
+
+/*Darkens buttons when hovered*/
+.container button:hover {
+	background-color: #006400;
+}
+
+/*Styles in the form container*/
+.container a {
+  color: #2773CB;
+  text-decoration: none;
+	padding-bottom: 10px
+}
+
+/*Darkens links when hovered over in the form container*/
+.container a:hover {
+  color: #174181;
+}
+
+/*Places form text to the left*/
 .containerlabelleft{
 	float: left;
 	margin-right: 16px;
 	font-weight: bold;
 }
 
+/*Places form text to the right*/
 .containerlabelright{
 	float: right;
 	font-weight: bold;
 }
 
-.container select, input[type=text], input[type=email]  {
-		vertical-align:middle;
-    width: 100%;
-		height: 4vh;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    background-color: white;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 6px 10px 6px 20px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-.container button, input[type=submit] {
-	color: white;
-	padding: 10px;
-	font-size: 18px;
-	border: none;
-	cursor: pointer;
-	height: 8vh;
-	width: 100%;
-}
-
-.container input[type=submit] {
-	background-color: #2773CB;
-}
-
-.container input[type=submit]:hover {
-	background-color: #174181;
-}
-
-.container button {
-	background-color: #00AA70;
-}
-
-.container button:hover {
-	background-color: #006400;
-}
-
-.container a {
-    color: #2773CB;
-    text-decoration: none;
-		padding-bottom: 10px
-}
-
-.container a:hover {
-    color: #174181;
-}
-
+/*Allows for form elements to be separated into columns*/
 .column {
-    float: left;
-		padding-right: 1%;
-    width: 49%;
+  float: left;
+	padding-right: 1%;
+  width: 49%;
 }
 
+/*Allows for form elements to be separated into rows*/
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
-		margin-bottom: 15px;
+  content: "";
+  display: table;
+  clear: both;
+	margin-bottom: 15px;
 }
 
+/*Displays small gray words in a paragraph*/
+.smallwords p {
+	color: gray;
+	font-size: 10px;
+}
+
+/*Allows for a word to be placed in the middle of a line created by a div*/
 .wordline {
 	display: flex;
 	flex-basis: 100%;
@@ -101,6 +135,7 @@
   font-weight: bold;
 }
 
+/*Creates a line that allows for a word to be placed in the middle*/
 .wordline::before, .wordline::after {
 	content: "";
 	flex-grow: 1;
@@ -111,17 +146,22 @@
 	margin: 0px 8px;
 }
 
-.smallwords p {
- color: gray;
- font-size: 10px;
+/*Used to stack form elements on top of each other on screens less than 500 px*/
+@media screen and (max-width: 500px) {
+  .column {
+      width: 100%;
+      margin-top: 0;
+			margin-bottom: 15px;
+  }
 }
 
 body {
-    font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
 }
 
 html {
-  background: url(stars.jpeg) no-repeat center center fixed;
+	/*Image obtained from https://www.pexels.com/photo/blue-and-purple-cosmic-sky-956999/*/
+  background: url(space.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
